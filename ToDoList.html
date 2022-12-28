@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>To Do List</title>
+	<link rel="stylesheet" type="text/css" href="style2.css">
+</head>
+<body>
+	<h1>To Do List</h1>
+	<div class="container">
+		<div class="card-list">
+			<input id="inputText" type="text" autofocus >
+			<button id="butAddToDo">Add</button>
+			<div id="toDoContainer" class="toDo">
+		</div>
+			
+		</div>
+	</div>
+	<script type="text/javascript">
+		let butAddTo = document.getElementById('butAddToDo');
+		let toDoContainer = document.getElementById('toDoContainer');
+		let inputText = document.getElementById('inputText');
+
+
+		butAddTo.addEventListener('click', function(){
+			if (inputText.value!='') {
+				var textArea=document.createElement('li');
+			textArea.innerText=inputText.value;
+			toDoContainer.appendChild(textArea);
+			inputText.value='';
+
+			
+			// Creating a Switch
+			var remove=document.createElement('p');
+			remove.setAttribute('id','del')
+			remove.innerText='x';
+			textArea.appendChild(remove);
+			remove.style.color='red';
+
+
+			remove.addEventListener('click',(e)=>{
+				toDoContainer.removeChild(textArea);
+			});
+		} 
+
+					});
+		
+	</script>
+</body>
+</html>
